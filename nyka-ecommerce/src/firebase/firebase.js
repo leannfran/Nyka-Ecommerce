@@ -1,11 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+//import { getAnalytics } from "firebase/analytics";
+import { getFirestore, collection, addDoc, getDoc, getDocs, doc, updateDoc,deleteDoc } from 'firebase/firestore';
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyAPrKBrrWWzm2MORczh-y_T_mGaqTzeIQY",
   authDomain: "nyka-ecommerce.firebaseapp.com",
@@ -18,4 +15,20 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+//const analytics = getAnalytics(app);
+const db = getFirestore();//consultar base de datos
+
+//con esta funcion obtenemos los productos de la base de datos
+export const getProductos = async () => {
+    const productos = await getDocs(collection(db, "productos"))
+    const items = productos.docs.map(prod => {
+        return { ...prod.data(), id: prod.id }
+    })
+    return console.log(items)
+}
+export const getProducto = async (id) => {
+    const producto = await getDoc(doc(db, "productos", id))
+    const item = { ...producto.data(), id: producto.id }
+    return console.log( item)
+}
+
