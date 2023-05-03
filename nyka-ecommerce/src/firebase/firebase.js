@@ -24,11 +24,11 @@ export const getProductos = async () => {
     const items = productos.docs.map(prod => {
         return { ...prod.data(), id: prod.id }
     })
-    return console.log(items)
+    return items
 }
 export const getProducto = async (id) => {
     const producto = await getDoc(doc(db, "productos", id))
     const item = { ...producto.data(), id: producto.id }
-    return console.log( item)
+    return item
 }
 
