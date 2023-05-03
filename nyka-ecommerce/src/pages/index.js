@@ -1,3 +1,5 @@
+import Image from 'next/image'
+import { getProductos, getProducto } from '@/firebase/firebase'
 import CardsContainer from "@/components/Cards/CardsContainer";
 import Carrousel from "@/components/Carrousel";
 import Footer from "@/components/Footer";
