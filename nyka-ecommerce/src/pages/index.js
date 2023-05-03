@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { getProductos, getProducto } from '@/firebase/firebase'
-import ItemListContainer from '@/components/ItemListContainer'
+import ItemListContainer from '../components/items/ItemListContainer'
 import CardsContainer from "@/components/Cards/CardsContainer";
 import Carrousel from "@/components/Carrousel";
 import Footer from "@/components/Footer";

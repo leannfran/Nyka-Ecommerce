@@ -15,7 +15,7 @@ const ItemListContainer = () => {
       }, []);
 
     return (
-        <div>
+        <div className="flex flex-row gap-4">
             {productos}
         </div>
     );
