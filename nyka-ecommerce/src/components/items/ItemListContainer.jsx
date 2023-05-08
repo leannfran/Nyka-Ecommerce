@@ -13,7 +13,6 @@ const ItemListContainer = (props) => {
   useEffect(() => {
     
     getProductos().then((products) => {
-      console.log(products);
       const productsList = <ItemList products={products} plantilla={"item"} />;
       setProductos(productsList);
     });

@@ -3,15 +3,15 @@ import React from "react";
 import item from "../../../public/Image.png";
 import { IconBagSvg } from "../Svgs";
 
-const CardItem = () => {
+const CardItem = ({title,price,description,img}) => {
   return (
     <div className="card w-80 bg-white shadow-slate-500 border shadow-lg ml-6">
       <figure className="px-5 pt-5">
         <Image src={item} alt="item" className="rounded-xl" />
       </figure>
       <div className="card-body items-center text-center text-black">
-        <h2 className="card-title">Lámpara Personalizada Infantil Mascota</h2>
-        <h3 className="card-title">$000000</h3>
+        <h2 className="card-title">{title}</h2>
+        <h3 className="card-title">${price}</h3>
         <p>3 cuotas sin interés o 20%off en transferencia</p>
         <div className="card-actions">
           <button className="w-12 h-12 flex items-center justify-center rounded-full bg-[#8D4925]">
