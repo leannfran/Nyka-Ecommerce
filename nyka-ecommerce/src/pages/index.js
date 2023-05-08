@@ -12,17 +12,17 @@ export default function Home() {
   return (
     <div className="">
       <div className="relative">
-        
+
         <Carrousel />
         <div className="absolute top-0 w-full">
           <NavBar />
         </div>
       </div>
-      <Why/>
-      <CardsContainer/>
-      <PayInfo/>
-      <InstagramSection/>
-      <Footer/>
+      <Why />
+      <CardsContainer />
+      <PayInfo />
+      <InstagramSection />
+      <Footer />
     </div>
   );
 }

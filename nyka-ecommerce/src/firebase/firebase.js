@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 //import { getAnalytics } from "firebase/analytics";
-import { getFirestore, collection, addDoc, getDoc, getDocs, doc, updateDoc,deleteDoc } from 'firebase/firestore';
+import { getFirestore, collection, addDoc, getDoc, getDocs, doc, updateDoc,deleteDoc , where} from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAPrKBrrWWzm2MORczh-y_T_mGaqTzeIQY",
@@ -32,3 +32,18 @@ export const getProducto = async (id) => {
     return item
 }
 
+export const getProductosByCat = async (categoria) => {
+    const productosRef = collection(db, "productos");
+    console.log(productosRef)
+    let query = productosRef;
+    if (categoria) {
+      query = query.where("categoria", "==", categoria);
+    }
+    const snapshot = await getDocs(query);
+    const productos = snapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+    return productos;
+  };
+  

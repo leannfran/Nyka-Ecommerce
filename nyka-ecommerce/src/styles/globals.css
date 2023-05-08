@@ -2,3 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
+.fondoTienda{
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/nyka-ecommerce.appspot.com/o/Image.png?alt=media&token=14724734-66c5-4c7c-9bae-a3b20dd3c4a7');
+}
