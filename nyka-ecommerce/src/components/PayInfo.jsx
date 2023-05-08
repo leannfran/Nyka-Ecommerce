@@ -1,17 +1,23 @@
 import Image from "next/image";
 import React from "react";
 import item from "../../public/Image.png";
-import { IconMoneySvg, IconMpSvg } from "./Svgs";
+import { IconDeliverySvg, IconMoneySvg, IconMpSvg } from "./Svgs";
 
 const PayInfo = () => {
   return (
-    <div className="bg-[#f3e5dd] text-[#622708] font-semibold mt-10">
-      <div className="flex">
-        <Image src={item} alt="lamp photo" className="w-1/2" />
-        <Image src={item} alt="lamp photo" className="w-1/2" />
+    <div className="bg-[#f3e5dd] text-[#622708] font-semibold xl:text-2xl mt-10 md:h-60 xl:h-[400px] md:flex">
+      <div className="flex md:w-4/5">
+        <Image src={item} alt="lamp photo" className="w-1/2 object-cover" />
+        <Image src={item} alt="lamp photo" className="w-1/2 object-cover" />
       </div>
-      <div className="w-full p-4 flex flex-col gap-4">
-        <h2>Envíos a todo el país a travez de Mercado Envíos</h2>
+      <div className="w-full flex flex-col items-start p-5 md:p-12 justify-evenly gap-5 md:gap-4">
+      <div className="flex items-center gap-2">
+          <div className="w-10 h-10">
+            <IconDeliverySvg />
+          </div>
+
+          <h2>Envíos a todo el país a través de Mercado Envíos</h2>
+        </div>
         <div className="flex items-center gap-2">
           <div className="w-10 h-10">
             <IconMoneySvg />

@@ -12,8 +12,11 @@ import { LogoInstaSvg, LogoMailSvg, LogoWspSvg } from "./Svgs";
 
 const Footer = () => {
   return (
-    <div className="bg-[#f3e5dd] mt-16 p-5 flex flex-col gap-8 text-[#622708]">
-      <div className="flex gap-2 justify-center">
+    <div className="bg-[#f3e5dd] mt-16 min-h-[200px] p-5 flex flex-col justify-between gap-8 text-[#622708] text-[8px] md:text-[10px] font-semibold
+     ">
+      <div className="flex flex-col md:flex-row gap-6 md:justify-between lg:px-24">
+
+      <div className="flex gap-2 justify-center h-8">
         <Image src={visa} alt="pay-method" />
         <Image src={master} alt="pay-method" />
         <Image src={pagoFacil} alt="pay-method" />
@@ -24,6 +27,7 @@ const Footer = () => {
         <Image src={banelco} alt="pay-method" />
       </div>
       <div className="flex items-center gap-2 justify-evenly">
+        <span className="hidden md:block">Redes</span>
         <div className="p-2 rounded-md bg-[#EFD1C1]">
           <LogoInstaSvg />
         </div>
@@ -36,11 +40,12 @@ const Footer = () => {
           <LogoMailSvg />
         </div>
       </div>
+      </div>
       <div className="flex justify-between">
-        <p className="text-[8px] font-semibold">
+        <p >
           ©️COPYRIGHT SOMOS NYKA 2023. TODOS LOS DERECHOS RESERVADOS.{" "}
         </p>
-        <p className="text-[8px] font-semibold">
+        <p >
           Creado por <span className="font-extrabold">FUTURE</span>
         </p>
       </div>
