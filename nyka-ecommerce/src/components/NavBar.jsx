@@ -1,15 +1,14 @@
 import React from "react";
 import { IconBagSvg, IconLensSvg, IconMenuSvg, LogoProfileSvg } from "./Svgs";
-import Cart from "./Cart";
+import  {CartContext}  from "../components/context/CartContext";
+
 
 const NavBar = () => {
- 
 
- 
-
+  const { openCart } = React.useContext(CartContext);
+  
   return (
     <nav className="navbar md:px-5 z-[1] absolute">
-      
       <div className="navbar-start">
         <div className="dropdown md:hidden   ">
           <label tabIndex={0} className="btn btn-ghost btn-circle w-9">
@@ -63,11 +62,8 @@ const NavBar = () => {
           </div>
         </button>
 
-        <button
-          className="btn btn-ghost btn-circle w-6 "
-           
-        >
-          <div className="indicator  ">
+        <button className="btn btn-ghost btn-circle w-6 " onClick={() => openCart()}>
+          <div className="indicator">
             <IconBagSvg color="currentColor" />
 
             <span className="badge badge-xs bg-[#8D4925] indicator-item"></span>
