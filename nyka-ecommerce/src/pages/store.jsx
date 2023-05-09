@@ -1,7 +1,8 @@
-import ItemListContainer from "@/components/items/ItemListContainer";
 import NavBar from "@/components/NavBar";
 import { getProductsByCategory } from "@/firebase/firebase";
 import Image from "next/image";
+import {useEffect, useState} from 'react'
+import ItemList from '../components/items/ItemList'
  
 
 const Tienda = () => {
@@ -10,7 +11,38 @@ const Tienda = () => {
   const fondo2 =
     "https://firebasestorage.googleapis.com/v0/b/nyka-ecommerce.appspot.com/o/Image.png?alt=media&token=14724734-66c5-4c7c-9bae-a3b20dd3c4a7";
 
-    getProductsByCategory("infantiles")
+  const [category, setCategory] = useState("");
+  const [productos, setProductos] = useState([]);
+
+
+
+  useEffect(() => {
+    getProductsByCategory(category).then((productsFiltered) => {
+      const productsList = <ItemList products={productsFiltered} plantilla={"item"} />; 
+      setProductos(productsList);
+    })
+      
+  
+  }, [category]);
+
+  const changeCategoryAll = ()=> {
+    setCategory("")
+  }
+  const changeCategoryPersonas = ()=> {
+    setCategory("personas")
+  }
+  const changeCategoryEmpresas = ()=> {
+    setCategory("empresas")
+  }
+  const changeCategoryInfantiles = ()=> {
+    setCategory("infantiles")
+  }
+  const changeCategoryEventos = ()=> {
+    setCategory("eventos")
+  }
+  const changeCategoryMore = ()=> {
+    setCategory("more")
+  }
 
   return (
     <div className=" bg-white">
@@ -39,16 +71,17 @@ const Tienda = () => {
             categorias
           </p>
 
-          <ul className="pl-1 gap-3 mt-1 text-lg text-[#2D2E37]">
-            <li>Ver todo</li>
-            <li>Personas</li>
-            <li>Empresas</li>
-            <li>Eventos</li>
-            <li>Mas productos</li>
+          <ul className="flex flex-col items-start pl-1 gap-3 mt-1 text-lg text-[#2D2E37]">
+            <button className=" hover:text-[#8D4925]" onClick={changeCategoryAll}>Ver todo</button>
+            <button className=" hover:text-[#8D4925]" onClick={changeCategoryPersonas}>Personas</button>
+            <button className=" hover:text-[#8D4925]" onClick={changeCategoryInfantiles}>Infantiles</button>
+            <button className=" hover:text-[#8D4925]" onClick={changeCategoryEmpresas}>Empresas</button>
+            <button className=" hover:text-[#8D4925]" onClick={changeCategoryEventos}>Eventos</button>
+            <button className=" hover:text-[#8D4925]" onClick={changeCategoryMore}>Mas productos</button>
           </ul>
         </section>
-        <section>
-          <ItemListContainer wrap={true} />
+        <section className="flex flex-row flex-wrap gap-3 m-3">
+          {productos}{/* productosfiltrados */}
         </section>
       </div>
     </div>
