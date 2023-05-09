@@ -43,6 +43,5 @@ export const getProductsByCategory = async (categoria) => {
     id: doc.id,
     ...doc.data(),
   }));
-  console.log(productos);
   return productos;
 };

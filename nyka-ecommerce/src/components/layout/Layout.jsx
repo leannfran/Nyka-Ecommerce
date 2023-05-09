@@ -2,17 +2,18 @@ import React from "react";
 import NavBar from "../NavBar";
 import Footer from "../Footer";
 import Cart from "../Cart";
+import CartProvider from "../context/CartContext";
 
 const Layout = ({ children }) => {
   return (
-    <div>
+    <CartProvider>
       <NavBar />
-      <div className="static bg-green-500">
-        <Cart open={false} />
-      </div>
+
+      <Cart />
+
       {children}
       <Footer />
-    </div>
+    </CartProvider>
   );
 };
 
