@@ -1,7 +1,7 @@
 import React from "react";
 import { IconBagSvg, IconLensSvg, IconMenuSvg, LogoProfileSvg } from "./Svgs";
 import  {CartContext}  from "../components/context/CartContext";
-
+import Link from "next/link";
 
 const NavBar = () => {
 
@@ -35,7 +35,7 @@ const NavBar = () => {
         <div className="hidden md:block font-semibold text-white">
           <ul className="flex gap-5">
             <li>
-              <a>Tienda</a>
+              <Link href={"/store"}>Tienda</Link>
             </li>
             <li>
               <a>¿Cómo comprar?</a>
@@ -47,17 +47,17 @@ const NavBar = () => {
         </div>
       </div>
       <div className="navbar-center">
-        <a className="btn btn-ghost normal-case text-xl">SomosNyka</a>
+        <a className="btn btn-ghost normal-case text-white text-xl">SomosNyka</a>
       </div>
       <div className="navbar-end flex gap-8 ">
         <button className="btn btn-ghost btn-circle w-6 hidden md:block ">
           <div className="indicator  ">
-            <LogoProfileSvg color="currentColor" />
+            <LogoProfileSvg color="white" />
           </div>
         </button>
 
         <button className="btn btn-ghost btn-circle w-6 ">
-          <div className="indicator  ">
+          <div className="indicator text-white ">
             <IconLensSvg />
           </div>
         </button>

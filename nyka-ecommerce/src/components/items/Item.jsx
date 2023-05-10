@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const Item = ({ item }) => {
   return (
-    <Link href={`/item/${item.id}`}>
+    <Link href={`/store/${item.id}`}>
     <div>
       <div className="card w-80 bg-white shadow-xl">
         <figure className="">
