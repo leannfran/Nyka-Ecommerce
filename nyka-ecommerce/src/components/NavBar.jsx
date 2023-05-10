@@ -1,7 +1,7 @@
 import React from "react";
 import { IconBagSvg, IconLensSvg, IconMenuSvg, LogoProfileSvg } from "./Svgs";
 import  {CartContext}  from "../components/context/CartContext";
-
+import Link from "next/link";
 
 const NavBar = () => {
 

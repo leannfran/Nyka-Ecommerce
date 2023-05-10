@@ -46,7 +46,7 @@ const Tienda = () => {
     <Layout>
       <div className=" bg-white">
         <div className="flex justify-center items-center bg-pink-50 ">
-          <h2 className="text-3xl z-10 text-white absolute">TIENDA</h2>
+          <h2 className="text-3xl z-10 text-white absolute">{category === "" ? "Tienda": category}</h2>
           <Image
             className="w-full md:w-[50%] h-64 "
             src={fondo1}
