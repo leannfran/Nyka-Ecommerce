@@ -66,7 +66,7 @@ const CardsContainer = () => {
       </div>
             
 
-      <Link href={'/store'}  className="bg-[#8D4925] text-white p-2 rounded-md m-auto ">
+      <Link href='../store' className="bg-[#8D4925] text-white p-2 rounded-md m-auto">
         Ver todos los productos
       </Link>
     </div>
