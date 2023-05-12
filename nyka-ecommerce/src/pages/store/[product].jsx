@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { getProducto } from "@/firebase/firebase";
 import { useEffect, useState } from "react";
 import ItemList from "@/components/items/ItemList";
+import Layout from "@/components/layout/Layout";
 
 const Product1 = () => {
   const router = useRouter();
@@ -27,47 +28,82 @@ const Product1 = () => {
     );
   };
 
+
   return (
-    <div className="flex justify-center items-center mt-4">
+    <Layout>
+    <div className="flex justify-center items-center pt-28">
       {producto ? (
-        <div className="flex flex-col md:flex-row">
-          <div className="w-full md:w-1/2">
+        <div className="flex flex-col  md:flex-row">
+          <div className="flex justify-center aling-center max-h-[80vh] w-full md:w-1/2 ml-4 mb-4">
             <img
               src={producto.img}
               alt={producto.name}
-              className="w-full h-auto"
+              className=" aspect-w-1 aspect-h-1 object-cover"
             />
           </div>
-          <div className="w-full md:w-1/2 p-4">
-            <h2 className="text-xl font-bold mb-2">{producto.nombre}</h2>
-            <p className="text-gray-700">{producto.size}</p>
-            <p className="text-gray-700 my-2">${producto.precio}</p>
+
+          <div className="w-full flex flex-col justify-between md:w-1/2 pl-4 pr-28">
+            <div>
+
+            <h2 className="text-2xl text-black font-bold  mb-3">
+              {producto.nombre}
+            </h2>
+
+            <p className="text-[#171513] font-light text-sm leading-8 ">
+              Tamaño: {producto.size}
+              <li>Podrás elegir con luz blanca fría o cálida (amarillenta).</li>
+              <li>
+                La imagen a personalizar se adjunta al finalizar la compra.
+              </li>
+            </p>
+
+            <p className="text-2xl text-black font-bold  my-3">
+              ${new Intl.NumberFormat("de-DE").format(producto.precio)}
+            </p>
+
+            <div className="dropdown">
+              <label
+                tabIndex={0}
+                className="btn text-black   bg-white hover:bg-[#622708] hover:text-white"
+                >
+                Elegir luz
+              </label>
+              <ul
+                tabIndex={0}
+                className="dropdown-content menu p-2 shadow bg-white w-52"
+              >
+                <li>
+                  <a>Luz fria</a>
+                </li>
+                <li>
+                  <a>Luz calida</a>
+                </li>
+              </ul>
+            </div>
+                </div>
+
             <div className="flex justify-between items-center my-4">
-              <div className="flex items-center">
+              <div className="flex items-center border border-black rounded-lg py-2.5">
                 <button
-                  className="bg-gray-300 text-gray-700 py-1 px-3 rounded-l"
+                  className=" text-black  pl-3 rounded-l"
                   onClick={() => cantidad > 1 && setCantidad(cantidad - 1)}
                 >
                   -
                 </button>
-                <input
-                  type="number"
-                  value={cantidad}
-                  className="text-center py-1 px-2 bg-gray-100"
-                  onChange={(e) => setCantidad(parseInt(e.target.value))}
-                />
+                <p className="text-black px-20">{cantidad}</p>
                 <button
-                  className="bg-gray-300 text-gray-700 py-1 px-3 rounded-r"
+                  className=" text-black  pr-3 rounded-r"
                   onClick={() => setCantidad(cantidad + 1)}
                 >
                   +
                 </button>
               </div>
+
               <button
-                className="bg-blue-500 text-white py-1 px-4 rounded"
+                className="bg-[#622708] border border-[#622708] text-white py-2.5 px-12 font-semibold rounded-lg hover:shadow-xl transition-all"
                 onClick={agregarAlCarrito}
               >
-                Agregar al carrito
+                AGREGAR AL CARRITO
               </button>
             </div>
           </div>
@@ -75,7 +111,7 @@ const Product1 = () => {
       ) : (
         <p>Cargando datos del producto...</p>
       )}
-    </div>
+    </div> </Layout>
   );
 };
 
