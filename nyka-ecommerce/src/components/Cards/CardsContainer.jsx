@@ -21,9 +21,9 @@ const CardsContainer = () => {
 
   return (
     <div className="bg-white text-[#433F3F] flex flex-col gap-5 justify-center">
-      <h1 className="text-center text-lg pt-10 font-bold">
+      <h3 className="text-center text-lg pt-10 font-bold">
         Productos destacados de nuestra tienda
-      </h1>
+      </h3>
       <div>
         <Swiper
           className="h-[570px]"
