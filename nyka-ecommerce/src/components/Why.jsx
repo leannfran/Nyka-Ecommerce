@@ -1,5 +1,6 @@
 import React from "react";
 import { IconHandSvg, IconMedalSvg, IconQualitySvg } from "./Svgs";
+import Button from "./buttons/Button";
 
 const Why = () => {
   return (
@@ -8,9 +9,7 @@ const Why = () => {
         <h1 className="font-extrabold lg:font-bold text-3xl lg:text-5xl text-center">
           ¿Por qué elegir nuestro producto?
         </h1>
-        <button className="bg-[#8D4925] text-white w-44 p-2 rounded-md hidden md:block mt-8">
-          Explorá nuestra tienda
-        </button>
+        <Button content="Explorá nuestra tienda" link color direction="./store"/>
       </div>
       <div className="flex h-full gap-4 md:flex-col md:gap-0 md:justify-evenly ">
         <IconQualitySvg />
