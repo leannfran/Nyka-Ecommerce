@@ -7,6 +7,7 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { getProductos } from "@/firebase/firebase";
 import Link from "next/link";
+import Button from "../buttons/Button";
 
 const CardsContainer = () => {
   const [productos, setProductos] = React.useState([]);
@@ -66,9 +67,7 @@ const CardsContainer = () => {
       </div>
             
 
-      <Link href='../store' className="bg-[#8D4925] text-white p-2 rounded-md m-auto">
-        Ver todos los productos
-      </Link>
+      <Button content="VER TODOS LOS PRODUCTOS" link direction="/store" color/>
     </div>
   );
 };
