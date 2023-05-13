@@ -44,8 +44,8 @@ const Cart = () => {
           </div>
           <h3 className="font-bold text-lg">Método de pago</h3>
           <div className="flex flex-col gap-4 font-bold">
-            <CardPaymentMethod />
-            <CardPaymentMethod />
+            <CardPaymentMethod price={12200} content="Mercado Pago"/>
+            <CardPaymentMethod price={12200} content="Mercado Pago"/>
           </div>
         <Button content="FINALIZAR COMPRA" link direction="/buy" color/>
         </div>
