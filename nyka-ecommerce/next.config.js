@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  experimental: { esmExternals: true },
 }
 
 module.exports = {
@@ -9,6 +10,7 @@ module.exports = {
         domains: ['firebasestorage.googleapis.com'],
 
       },
+      
     
   
 }
