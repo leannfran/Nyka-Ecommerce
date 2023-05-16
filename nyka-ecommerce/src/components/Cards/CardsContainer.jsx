@@ -59,7 +59,7 @@ const CardsContainer = () => {
         >
           {productos.map((product) => (
             <SwiperSlide key={product.id}>
-              <CardItem title={product.nombre} price={product.precio} />
+              <CardItem title={product.nombre} price={product.precio} img={product.img} id={product.id} />
             </SwiperSlide>
           ))}
         </Swiper>
