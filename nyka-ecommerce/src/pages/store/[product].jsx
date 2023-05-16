@@ -9,6 +9,7 @@ const Product1 = () => {
   const [productID, setProductID] = useState(null);
   const [producto, setProducto] = useState(null);
   const [cantidad, setCantidad] = useState(1);
+  const [luz, setLuz] = useState("Elegir Luz");
 
   useEffect(() => {
     if (router.query.product) {
@@ -66,17 +67,17 @@ const Product1 = () => {
                 tabIndex={0}
                 className="btn text-black   bg-white hover:bg-[#622708] hover:text-white"
                 >
-                Elegir luz
+                {luz}
               </label>
               <ul
                 tabIndex={0}
                 className="dropdown-content menu p-2 shadow bg-white w-52"
               >
-                <li>
-                  <a>Luz fria</a>
+                <li className=" hover:bg-[#622708] rounded-lg">
+                  <button className="text-black font-semibold hover:text-white " onClick={()=> setLuz('Luz fria')}>Luz fria</button>
                 </li>
-                <li>
-                  <a>Luz calida</a>
+                <li className=" hover:bg-[#622708] rounded-lg" >
+                  <button className="text-black font-semibold hover:text-white" onClick={()=> setLuz('Luz caliente')}>Luz caliente</button>
                 </li>
               </ul>
             </div>
