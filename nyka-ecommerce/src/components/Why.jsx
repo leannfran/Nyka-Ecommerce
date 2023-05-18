@@ -5,11 +5,14 @@ import Button from "./buttons/Button";
 const Why = () => {
   return (
     <section className="bg-[#f3e5dd] flex flex-col md:flex-row items-center md:justify-center text-[#433F3F] p-8 gap-4 md:h-[400px] lg:px-32">
-      <div className="flex flex-col justify-center items-center gap-4">
+      <div className="flex flex-col justify-center items-center gap-20">
         <h1 className="font-extrabold lg:font-bold text-3xl lg:text-5xl text-center">
           ¿Por qué elegir nuestro producto?
         </h1>
+        <div className="hidden md:block">
+
         <Button content="Explorá nuestra tienda" link color direction="./store"/>
+        </div>
       </div>
       <div className="flex h-full gap-4 md:flex-col md:gap-0 md:justify-evenly ">
         <IconQualitySvg />
@@ -48,9 +51,9 @@ const Why = () => {
           <div className="h-[.5px] w-full bg-[#8D4925]"></div>
         </div>
       </div>
-      <button className="bg-[#8D4925] text-white w-44 p-2 rounded-md md:hidden">
-        Explorá nuestra tienda
-      </button>
+      <div className="md:hidden mt-3">
+      <Button content="Explorá nuestra tienda" link color direction="./store"/>
+      </div>
     </section>
   );
 };

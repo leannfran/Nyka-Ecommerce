@@ -5,6 +5,8 @@ import Cart from "../Cart";
 import CartProvider from "../context/CartContext";
 
 const Layout = ({ children }) => {
+
+
   return (
     <CartProvider>
       <NavBar />
