@@ -1,26 +1,56 @@
 import Image from "next/image";
-import React from "react";
+import {useState} from "react";
 import item from "../../../public/Image.png";
 import { IconBagSvg } from "../Svgs";
+import MyLoader from "../itemLoader";
+import Link from "next/link";
 
-const CardItem = ({title,price,description,img}) => {
-  return (
-    <div className="card w-80 bg-white shadow-slate-500 border shadow-lg ml-6">
-      <figure className="px-5 pt-5">
-        <Image src={item} alt="item" className="rounded-xl" />
-      </figure>
-      <div className="card-body items-center text-center text-black">
-        <h2 className="card-title">{title}</h2>
-        <h3 className="card-title">${price}</h3>
-        <p>3 cuotas sin interés o 20%off en transferencia</p>
-        <div className="card-actions">
-          <button className="w-12 h-12 flex items-center justify-center rounded-full bg-[#8D4925]">
-            <IconBagSvg color="white"/>
-          </button>
-        </div>
-      </div>
-      
-    </div>
+
+const CardItem = ({title,price,description,img,id}) => {
+  const [loaded, setLoaded] = useState(false);
+  return  (
+    <>
+      {loaded ? (
+        <Link href={`/store/${id}`}>
+          <div>
+            <div className="card w-80   bg-white shadow-xl hover:shadow-2xl transition-all">
+              <figure className="">
+                <img
+                  src={`${img}`}
+                  alt="item"
+                  className="w-80 max-h-64 aspect-w-1 aspect-h-1 object-cover rounded-t-xl"
+                  onLoad={() => setLoaded(true)}
+                />
+              </figure>
+              <div className="flex flex-col gap-2 my-4 items-center text-center text-black">
+                <h2 className="card-title text-base">{title}</h2>
+                <h3 className="card-title text-lg">
+                  ${new Intl.NumberFormat("de-DE").format(price)}
+                </h3>
+                <p className=" text-xs  text-gray-800 ">
+                  3 cuotas sin interés o 20%off en transferencia
+                </p>
+                <div className="card-actions">
+                  <button className="w-12 h-12 mt-[4px] flex items-center justify-center rounded-full bg-[#8D4925]">
+                    <IconBagSvg color="white" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Link>
+      ) : (
+        <>
+          <MyLoader />
+          <img
+            src={`${img}`}
+            alt="item"
+            className="w-80 -z-10 absolute max-h-64 aspect-w-1 aspect-h-1 object-cover rounded-t-xl"
+            onLoad={() => setLoaded(true)}
+          />
+        </>
+      )}
+    </>
   );
 };
 
