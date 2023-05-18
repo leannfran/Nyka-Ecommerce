@@ -6,6 +6,7 @@ const CardPaymentMethod = ({
   price,
   description,
   register,
+  formProperty
 }) => {
   if (!register) {
     return <div
@@ -41,7 +42,7 @@ const CardPaymentMethod = ({
           name="paymentType"
           id={content}
           value={content}
-          {...register("shipping" , {required: true})}
+          {...register(formProperty , {required: true})}
         />
         <div className="flex flex-col">
           <span>{content}</span>

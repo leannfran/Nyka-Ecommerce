@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 
 const Buy = () => {
   const [promo, setPromo] = React.useState(false);
-  const [step, setStep] = React.useState(1);
+  const [step, setStep] = React.useState(0);
 
   const handleStepChange = (newStep) => {
     setStep(newStep);
@@ -20,23 +20,9 @@ const Buy = () => {
     formState: { errors, isValid },
   } = useForm();
 
-  const onSubmitStepOne = (data) => {
-    const stepOneData = {
-      size: data.size,
-      light: data.light,
-      image: data.image,
-      promo: data.promo,
-      promoType: data.promoType,
-      note: data.note,
-    };
-    localStorage.setItem("data", JSON.stringify(stepOneData));
-    requestAnimationFrame(() => handleStepChange(1));
-  };
 
-  const onSubmitStepTwo = (data) => {
-    const stepOneData = JSON.parse(localStorage.getItem("data"));
-    const stepTwoData = {
-      ...stepOneData,
+  const onSubmitStepOne = (data) => {
+    const product = {
       firstName: data.first_name,
       lastName: data.last_name,
       email: data.email,
@@ -48,11 +34,22 @@ const Buy = () => {
       country: data.country,
       documentType: data.document_type,
       documentNumber: data.document_number,
-      shipping: data.shipping,
+      delivery: data.delivery_method,
     };
-    localStorage.setItem("data", JSON.stringify(stepTwoData));
-    requestAnimationFrame(() => handleStepChange(2));
+    localStorage.setItem("buy", JSON.stringify(product));
+    requestAnimationFrame(() => handleStepChange(1));
   };
+
+ const onSubmitStepTwo = async (data) => {
+    const stepOneData = await JSON.parse(localStorage.getItem("buy"));
+    const product = {
+      ...stepOneData,
+      paymentMethod: data.payment_method,
+      note: data.note,
+    };
+    localStorage.setItem("buy", JSON.stringify(product));
+  }
+
 
   const promoValue = watch("promo");
 
@@ -66,8 +63,9 @@ const Buy = () => {
         </div>
         <h2 className="text-2xl font-bold">Nombre de producto</h2>
         <h3 className="text-2xl font-normal">
-          {step === 0 ? "Detalles de compra" : "Completar datos de envío"}
+          {step === 0 ? "Datos de envío" : "Datos de compra"}
         </h3>
+
 
         {step === 0 && (
           <form
@@ -75,140 +73,6 @@ const Buy = () => {
             onSubmit={handleSubmit(onSubmitStepOne)}
           >
             <label className="flex flex-col">
-              TAMAÑO
-              <select
-                className="select w-full max-w-xs bg-white border border-black"
-                name="size"
-                {...register("size", {
-                  required: "Este campo es obligatorio",
-                  validate: (value) =>
-                    value !== "Seleccionar" || "Selecciona una opción",
-                })}
-              >
-                <option disabled selected>
-                  Seleccionar
-                </option>
-                <option>Homer</option>
-                <option>Marge</option>
-                <option>Bart</option>
-                <option>Lisa</option>
-                <option>Maggie</option>
-              </select>
-              {errors.size && <span>{errors.size.message}</span>}
-            </label>
-
-            <label className="flex flex-col">
-              LUZ
-              <select
-                className="select w-full max-w-xs bg-white border border-black"
-                name="light"
-                {...register("light", {
-                  required: "Este campo es obligatorio",
-                  validate: (value) =>
-                    value !== "Seleccionar" || "Selecciona una opción",
-                })}
-              >
-                <option disabled selected>
-                  Seleccionar
-                </option>
-                <option>Homer</option>
-                <option>Marge</option>
-                <option>Bart</option>
-                <option>Lisa</option>
-                <option>Maggie</option>
-              </select>
-              {errors.light && <span>{errors.light.message}</span>}
-            </label>
-
-            <label className="flex flex-col">
-              Adjunta la imagen para tu lámpara a personalizar, te pedimos que
-              tenga buena luz y sea nítida{" "}
-              <input
-                type="file"
-                className="file-input file-input-bordered w-full max-w-xs bg-white border border-black"
-                {...register("image", {
-                  required: "Este campo es obligatorio",
-                })}
-              />
-            </label>
-
-            <label className="flex flex-col">
-              PROMOCIÓN
-              <select
-                className="select w-full max-w-xs bg-white border border-black"
-                {...register("promo", { required: false })}
-                onChange={(e) =>
-                  e.target.value === "Llavero"
-                    ? setPromo(true)
-                    : setPromo(false)
-                }
-              >
-                <option selected>Ninguna</option>
-                <option>Llavero</option>
-                <option>Marge</option>
-                <option>Bart</option>
-                <option>Lisa</option>
-                <option>Maggie</option>
-              </select>
-            </label>
-            {promo && (
-              <div className="flex flex-col  gap-2">
-                <h3>ELEGÍ LOS DISEÑOS PARA TUS LLAVEROS</h3>
-                <div className="flex flex-col gap-4">
-                  <label>
-                    <input
-                      type="checkbox"
-                      value="SpotifyCode"
-                      className="mr-3"
-                      {...register("promoType")}
-                    />
-                    Código de spotify
-                  </label>
-                  <label>
-                    <input
-                      type="checkbox"
-                      value="Calendary"
-                      className="mr-3"
-                      {...register("promoType")}
-                    />
-                    Calendario
-                  </label>
-                  <label>
-                    <input
-                      type="checkbox"
-                      value="SamePhoto"
-                      className="mr-3"
-                      {...register("promoType")}
-                    />
-                    Misma foto de lámpara
-                  </label>
-                </div>
-              </div>
-            )}
-
-            <div>
-              <h3>Notas al pedido</h3>
-              <textarea
-                className="bg-white border border-black rounded-md w-full p-2"
-                placeholder="Opcional"
-                {...register("note")}
-              ></textarea>
-            </div>
-
-            <Btn
-              type="submit"
-              content="Siguiente"
-              disable={!isValid}
-              onClick={onSubmitStepOne}
-            />
-          </form>
-        )}
-        {step === 1 && (
-          <form
-            className="flex flex-col gap-5"
-            onSubmit={handleSubmit(onSubmitStepTwo)}
-          >
-            {/* <label className="flex flex-col">
               Nombre
               <input
                 type="text"
@@ -321,7 +185,7 @@ const Buy = () => {
                   <option>Maggie</option>
                 </select>
               </label>
-            </div> */}
+            </div>
             <label className="flex flex-col">
               Dirección
               <input
@@ -343,12 +207,14 @@ const Buy = () => {
                 content="Envío a domicilio"
                 price={690}
                 register={register}
+                formProperty="delivery_method"
               />
               <CardPaymentMethod 
                 color 
                 content="Envío a correo" 
                 price={690} 
                   register={register}
+                  formProperty="delivery_method"
               />
             </label>
             <div className="flex">
@@ -357,27 +223,35 @@ const Buy = () => {
               <Btn
                 content="Siguiente"
                 disable={!isValid}
-                onClick={onSubmitStepTwo}
+                onClick={onSubmitStepOne}
               />
             </div>
           </form>
         )}
-        {step === 2 && (
-          <form className="flex flex-col gap-5">
+        {step === 1 && (
+          <form className="flex flex-col gap-5" onSubmit={handleSubmit(onSubmitStepTwo)}>
             <CardPaymentMethod
               color
               content="Transferencia bancaria 20% OFF"
               description="Los datos para realizar la transferencia se enviarán a través de tu correo"
               price={1200}
+              register={register}
+              formProperty="payment_method"
             />
-            <CardPaymentMethod color content="Mercado Pago" price={1200} />
+            <CardPaymentMethod color content="Mercado Pago" price={1200} register={register}
+            formProperty="payment_method"
+            />
             <div>
               <h3>Notas al pedido</h3>
-              <textarea className="bg-white border border-black rounded-md w-full p-2"></textarea>
+              <textarea className="bg-white border border-black rounded-md w-full p-2" {...register("note")}></textarea>
             </div>
             <div className=" flex">
-              <Btn content="Anterior" onClick={() => handleStepChange(1)} />
-              <Btn content="Finalizar compra" color />
+              <Btn content="Anterior" onClick={() => handleStepChange(0)} />
+              <Btn
+                content="Finalizar compra"
+                disable={!isValid}
+                onClick={onSubmitStepTwo}
+              />
             </div>
           </form>
         )}

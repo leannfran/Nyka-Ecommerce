@@ -13,7 +13,7 @@ const CardItem = ({title,price,description,img,id}) => {
       {loaded ? (
         <Link href={`/store/${id}`}>
           <div>
-            <div className="card w-80   bg-white shadow-xl hover:shadow-2xl transition-all">
+            <div className="card w-80 bg-white shadow-xl hover:shadow-2xl transition-all">
               <figure className="">
                 <img
                   src={`${img}`}
