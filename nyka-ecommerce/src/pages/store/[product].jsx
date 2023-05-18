@@ -3,12 +3,29 @@ import { getProducto } from "@/firebase/firebase";
 import { useEffect, useState } from "react";
 import ItemList from "@/components/items/ItemList";
 import Layout from "@/components/layout/Layout";
+import { Swiper, SwiperSlide } from "swiper/react";
+import CardItem from "../../components/Cards/CardItem";
 
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import { getProductos } from "@/firebase/firebase";
 const Product1 = () => {
+  
   const router = useRouter();
   const [productID, setProductID] = useState(null);
   const [producto, setProducto] = useState(null);
   const [cantidad, setCantidad] = useState(1);
+  const [luz, setLuz] = useState("Elegir Luz");
+  const [productos, setProductos] = useState([]);
+
+    useEffect(() => {
+    getProductos().then((products) => {
+      console.log("hola soy productos")
+      setProductos(products);
+    });
+  }, []);
 
   useEffect(() => {
     if (router.query.product) {
@@ -66,17 +83,17 @@ const Product1 = () => {
                 tabIndex={0}
                 className="btn text-black   bg-white hover:bg-[#622708] hover:text-white"
                 >
-                Elegir luz
+                {luz}
               </label>
               <ul
                 tabIndex={0}
                 className="dropdown-content menu p-2 shadow bg-white w-52"
               >
-                <li>
-                  <a>Luz fria</a>
+                <li className=" hover:bg-[#622708] rounded-lg">
+                  <button className="text-black font-semibold hover:text-white " onClick={()=> setLuz('Luz fria')}>Luz fria</button>
                 </li>
-                <li>
-                  <a>Luz calida</a>
+                <li className=" hover:bg-[#622708] rounded-lg" >
+                  <button className="text-black font-semibold hover:text-white" onClick={()=> setLuz('Luz caliente')}>Luz caliente</button>
                 </li>
               </ul>
             </div>
@@ -110,8 +127,54 @@ const Product1 = () => {
         </div>
       ) : (
         <p>Cargando datos del producto...</p>
-      )}
-    </div> </Layout>
+        )}
+    </div> 
+    <div className="flex flex-col items-center">
+        <h4 className="text-xl font-bold text-black  mt-20 border-b border-1 border-black pb-5 mb-5">Productos destacados de nuestra tienda</h4>
+        <div>
+        <Swiper
+          className="h-[570px]"
+          modules={[]}
+          spaceBetween={0}
+          slidesPerView={3}
+          breakpoints={{
+            0: {
+              slidesPerView: 1.1,
+            },
+            436: {
+              slidesPerView: 1.2,
+            },
+            600: {
+              slidesPerView: 1.5,
+            },
+            730: {
+              slidesPerView: 2,
+            },
+            919: {
+              slidesPerView: 2.5,
+            },
+            1084: {
+              slidesPerView: 3,
+            },
+            1200: {
+              slidesPerView: 3.5,
+            },
+            1600: {
+              slidesPerView: 5,
+            },
+          }}
+          style={{ position: "unset" }}
+        >
+          {productos.map((product) => (
+            <SwiperSlide key={product.id}>
+              <CardItem title={product.nombre} price={product.precio} img={product.img} id={product.id} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </div>
+
+    </Layout>
   );
 };
 
