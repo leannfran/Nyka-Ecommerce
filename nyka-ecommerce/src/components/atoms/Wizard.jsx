@@ -17,7 +17,6 @@ export default function Wizard({step}) {
       >
         <Step activeClassName="bg-[#622708]" completedClassName="bg-[#622708]">1</Step>
         <Step activeClassName="bg-[#622708]" completedClassName="bg-[#622708]">2</Step>
-        <Step activeClassName="bg-[#622708]" completedClassName="bg-[#622708]">3</Step>
       </Stepper>
     </div>
   );

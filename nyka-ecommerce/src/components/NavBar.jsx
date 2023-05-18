@@ -5,24 +5,24 @@ import Link from "next/link";
 
 const NavBar = () => {
 
-  const { openCart, } = React.useContext(CartContext);
+  const { openCart } = React.useContext(CartContext);
   
   return (
     <nav className="navbar md:px-5 z-[2] absolute">
       <div className="navbar-start">
-        <div className="dropdown md:hidden">
+        <div className="dropdown lg:hidden">
           <label tabIndex={0} className="btn btn-ghost btn-circle w-9">
             <IconMenuSvg />
           </label>
           <ul
-            tabIndex={0}
-            className=" menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 z-10"
+            
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 z-10"
           >
             <li>
               <a>Perfil</a>
             </li>
             <li>
-              <a>Tienda</a>
+              <a href="./store">Tienda</a>
             </li>
             <li>
               <a>¿Cómo comprar?</a>
@@ -32,7 +32,7 @@ const NavBar = () => {
             </li>
           </ul>
         </div>
-        <div className="hidden md:block font-semibold text-white">
+        <div className={`hidden lg:block font-semibold`}>
           <ul className="flex gap-5">
             <li>
               <Link href={"/store"}>Tienda</Link>
@@ -62,7 +62,7 @@ const NavBar = () => {
           </div>
         </button>
 
-        <button className="btn btn-ghost btn-circle w-6 " onClick={() => openCart()}>
+        <button className="btn btn-ghost btn-circle w-6 pr-3 md:p-0" onClick={() => openCart()}>
           <div className="indicator">
             <IconBagSvg color="currentColor" />
 
