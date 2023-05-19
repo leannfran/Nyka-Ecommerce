@@ -21,11 +21,12 @@ const CardsContainer = () => {
 
   return (
     <div className="bg-white text-[#433F3F] flex flex-col gap-5 justify-center">
-    
+      <div>
         <CardSwiper
           title="Productos destacados de nuestra tienda"
           products={products}
         />
+      </div>
 
       <Button content="VER TODOS LOS PRODUCTOS" link direction="/store" color />
     </div>
