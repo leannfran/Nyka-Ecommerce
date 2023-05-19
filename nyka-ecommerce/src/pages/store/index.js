@@ -1,4 +1,3 @@
-import NavBar from "@/components/NavBar";
 import { getProductsByCategory } from "@/firebase/firebase";
 import Image from "next/image";
 import { useEffect, useState } from "react";

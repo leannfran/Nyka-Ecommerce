@@ -19,29 +19,29 @@ const NavBar = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 z-10"
           >
             <li>
-              <a>Perfil</a>
+              <Link href="#">Perfil</Link>
             </li>
             <li>
-              <a href="./store">Tienda</a>
+              <Link href="./store">Tienda</Link>
             </li>
             <li>
-              <a>¿Cómo comprar?</a>
+              <Link href="./questions">¿Cómo comprar?</Link>
             </li>
             <li>
-              <a>Contacto</a>
+              <Link href="#">Contacto</Link>
             </li>
           </ul>
         </div>
         <div className={`hidden lg:block font-semibold`}>
           <ul className="flex gap-5">
             <li>
-              <Link href={"/store"}>Tienda</Link>
+              <Link href="/store">Tienda</Link>
             </li>
             <li>
-              <a>¿Cómo comprar?</a>
+              <Link href="./questions">¿Cómo comprar?</Link>
             </li>
             <li>
-              <a>Contacto</a>
+              <Link href="#">Contacto</Link>
             </li>
           </ul>
         </div>
