@@ -12,8 +12,8 @@ const CardItem = ({title,price,description,img,id}) => {
     <>
       {loaded ? (
         <Link href={`/store/${id}`}>
-          <div>
-            <div className="card w-80 bg-white shadow-xl hover:shadow-2xl transition-all">
+         
+            <div className="card w-80 bg-white shadow-xl hover:shadow-2xl transition-all min-h-[470px] mx-4 lg:mx-12">
               <figure className="">
                 <img
                   src={`${img}`}
@@ -37,7 +37,7 @@ const CardItem = ({title,price,description,img,id}) => {
                 </div>
               </div>
             </div>
-          </div>
+        
         </Link>
       ) : (
         <>
