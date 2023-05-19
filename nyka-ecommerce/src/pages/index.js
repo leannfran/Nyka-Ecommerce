@@ -1,4 +1,4 @@
-import CardsContainer from "@/components/cards/CardsContainer";
+import CardsContainer from "../components/cards/CardsContainer";
 import Carousel from "@/components/Carousel";
 import InstagramSection from "@/components/InstagramSection";
 import Layout from "@/components/layout/Layout";
