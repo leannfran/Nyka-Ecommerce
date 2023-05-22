@@ -3,10 +3,10 @@ import { useRouter } from "next/router";
 import { getProducto } from "@/firebase/firebase";
 import { useEffect, useState } from "react";
 import ItemList from "@/components/items/ItemList";
-import Layout from "@/components/layout/Layout";
+import Layout from "../../components/layout/Layout";
 import { Swiper, SwiperSlide } from "swiper/react";
 import CardItem from "../../components/cards/CardItem";
-import Btn from "@/components/buttons/Button";
+import Btn from "../../components/buttons/Button";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -51,7 +51,6 @@ const Product1 = () => {
 
   const onSubmit = (data) => {
     const formatedData = {
-      size: data.size,
       light: data.light,
       image: data.image,
       promo: data.promo,
@@ -76,7 +75,7 @@ const Product1 = () => {
 
   return (
     <Layout>
-      <div className="flex justify-center items-center pt-28">
+      <div className="flex justify-center font-sans items-center pt-28">
         {producto ? (
           <div className="flex flex-col  md:flex-row">
             <div className="flex justify-center aling-center max-h-[80vh] w-full md:w-1/2 ml-4 mb-4">
@@ -89,7 +88,7 @@ const Product1 = () => {
 
             <div className="w-full flex flex-col justify-between md:w-1/2 pl-4 pr-28 ">
               <div>
-                <h2 className="text-2xl text-black font-bold  mb-3">
+                <h2 className="text-2xl text-black font-semibold  mb-3">
                   {producto.nombre}
                 </h2>
 
@@ -103,7 +102,7 @@ const Product1 = () => {
                   </li>
                 </p>
 
-                <p className="text-2xl text-black font-bold  my-3">
+                <p className="text-2xl text-black font-semibold  my-3">
                   ${new Intl.NumberFormat("de-DE").format(producto.precio)}
                 </p>
 
@@ -111,33 +110,11 @@ const Product1 = () => {
                   className="flex flex-col gap-5 text-black"
                   onSubmit={handleSubmit(onSubmit)}
                 >
-                  <label className="flex flex-col">
-                    TAMAÑO
-                    <select
-                      className="select w-full max-w-xs bg-white border border-black"
-                      name="size"
-                      {...register("size", {
-                        required: "Este campo es obligatorio",
-                        validate: (value) =>
-                          value !== "Seleccionar" || "Selecciona una opción",
-                      })}
-                    >
-                      <option disabled selected>
-                        Seleccionar
-                      </option>
-                      <option>Homer</option>
-                      <option>Marge</option>
-                      <option>Bart</option>
-                      <option>Lisa</option>
-                      <option>Maggie</option>
-                    </select>
-                    {errors.size && <span>{errors.size.message}</span>}
-                  </label>
+                  <div className="flex gap-2">
 
-                  <label className="flex flex-col">
-                    LUZ
+                  <label className="flex flex-col max-w-min">
                     <select
-                      className="select w-full max-w-xs bg-white border border-black"
+                      className="select max-w-min bg-white border-1  border-black text-black transition-colors hover:bg-[#622708] hover:text-white"
                       name="light"
                       {...register("light", {
                         required: "Este campo es obligatorio",
@@ -146,33 +123,16 @@ const Product1 = () => {
                       })}
                     >
                       <option disabled selected>
-                        Seleccionar
+                        Elegir luz
                       </option>
-                      <option>Homer</option>
-                      <option>Marge</option>
-                      <option>Bart</option>
-                      <option>Lisa</option>
-                      <option>Maggie</option>
+                      <option>Luz calida</option>
+                      <option>Luz fria</option>
                     </select>
                     {errors.light && <span>{errors.light.message}</span>}
                   </label>
-
-                  <label className="flex flex-col">
-                    Adjunta la imagen para tu lámpara a personalizar, te pedimos
-                    que tenga buena luz y sea nítida{" "}
-                    <input
-                      type="file"
-                      className="file-input file-input-bordered w-full max-w-xs bg-white border border-black"
-                      {...register("image", {
-                        required: "Este campo es obligatorio",
-                      })}
-                    />
-                  </label>
-
-                  <label className="flex flex-col">
-                    PROMOCIÓN
+                  <label className="flex flex-col max-w-min ">
                     <select
-                      className="select w-full max-w-xs bg-white border border-black"
+                      className="select bg-white border-1  border-black text-black transition-colors hover:bg-[#622708] hover:text-white"
                       {...register("promo", { required: false })}
                       onChange={(e) =>
                         e.target.value === "Llavero"
@@ -180,23 +140,21 @@ const Product1 = () => {
                           : setPromo(false)
                       }
                     >
-                      <option selected>Ninguna</option>
+                      <option selected>Elegir promocion
+</option>
                       <option>Llavero</option>
-                      <option>Marge</option>
-                      <option>Bart</option>
-                      <option>Lisa</option>
-                      <option>Maggie</option>
+                     
                     </select>
                   </label>
                   {promo && (
-                    <div className="flex flex-col  gap-2">
-                      <h3>ELEGÍ LOS DISEÑOS PARA TUS LLAVEROS</h3>
+                    <div className="absolute bg-white shadow-xl right-10    px-4 py-2 rounded-lg flex flex-col  gap-2">
+                      <h5 className=" font-light border-b-2 p-1 border-[#622708] ">Elegí los diseños para tus llaveros</h5>
                       <div className="flex flex-col gap-4">
                         <label>
                           <input
                             type="checkbox"
                             value="SpotifyCode"
-                            className="mr-3"
+                            className="mr-3 rounded border-gray-300 focus:ring-blue-500"
                             {...register("promoType")}
                           />
                           Código de spotify
@@ -205,7 +163,7 @@ const Product1 = () => {
                           <input
                             type="checkbox"
                             value="Calendary"
-                            className="mr-3"
+                            className="mr-3 rounded border-gray-300 focus:ring-blue-500"
                             {...register("promoType")}
                           />
                           Calendario
@@ -214,36 +172,56 @@ const Product1 = () => {
                           <input
                             type="checkbox"
                             value="SamePhoto"
-                            className="mr-3"
+                            className="mr-3 rounded border-gray-300 focus:ring-blue-500"
                             {...register("promoType")}
                           />
                           Misma foto de lámpara
                         </label>
                       </div>
                     </div>
-                  )}
+                  )} </div>
+
+
+                  <label className="flex flex-col">
+                    <p className="text-[#171513] font-light text-sm ">
+                      Adjunta la imagen para tu lámpara a personalizar
+                    </p>
+                    <p className="text-gray-700 font-light text-xs leading-5">
+                      {" "}
+                      te pedimos que tenga buena luz y sea nítida{" "}
+                    </p>
+                    <input
+                      type="file"
+                      className="border subirArchivo appearance-none border-black bg-white rounded w-full max-w-xs p-2"
+                      {...register("image", {
+                        required: "Este campo es obligatorio",
+                      })}
+                    />
+                  </label>
 
                   <div>
-                    <h3>Notas al pedido</h3>
+                    <h3 className="font-light ">Notas al pedido</h3>
                     <textarea
                       className="bg-white border border-black rounded-md w-full p-2"
                       placeholder="Opcional"
                       {...register("note")}
                     ></textarea>
                   </div>
+                  <div className="mt-8 flex justify-between items-center my-4">
 
                   <BtnQuantity
                     value={quantity}
                     decrement={handleMinusClick}
                     increment={handlePlusClick}
                     register={register}
-                  />
+                    />
                   <Btn
                     type="submit"
                     content="Siguiente"
                     disable={!isValid}
                     onClick={onSubmit}
-                  />
+                    />
+                    </div>
                 </form>
               </div>
             </div>
