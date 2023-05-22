@@ -440,3 +440,31 @@ export function IconCloseSvg() {
     </svg>
   );
 }
+
+export function IconDownOpenBig(props) {
+  return (
+    <svg
+      viewBox="0 0 866 1000"
+      fill="currentColor"
+      height="1em"
+      width="1em"
+      {...props}
+    >
+      <path d="M63 280l370 356 372-356c14.667-17.333 30.667-17.333 48 0 17.333 14.667 17.333 30.667 0 48L457 720c-14.667 14.667-30.667 14.667-48 0L13 328c-17.333-17.333-17.333-33.333 0-48 16-16 32.667-16 50 0" />
+    </svg>
+  );
+}
+
+export function IconUpOpenBig(props) {
+  return (
+    <svg
+      viewBox="0 0 864 1000"
+      fill="currentColor"
+      height="1em"
+      width="1em"
+      {...props}
+    >
+      <path d="M804 720L432 362 62 720c-17.333 14.667-34 14.667-50 0-16-16-16-32.667 0-50l396-390c17.333-17.333 33.333-17.333 48 0l396 390c16 17.333 16 34 0 50-17.333 14.667-33.333 14.667-48 0" />
+    </svg>
+  );
+}
