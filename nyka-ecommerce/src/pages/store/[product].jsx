@@ -234,52 +234,7 @@ const Product1 = () => {
         <h4 className="text-xl font-bold text-black  mt-20 border-b border-1 border-black pb-5 mb-5">
           Productos destacados de nuestra tienda
         </h4>
-        <div>
-          <Swiper
-            className="h-[570px]"
-            modules={[]}
-            spaceBetween={0}
-            slidesPerView={3}
-            breakpoints={{
-              0: {
-                slidesPerView: 1.1,
-              },
-              436: {
-                slidesPerView: 1.2,
-              },
-              600: {
-                slidesPerView: 1.5,
-              },
-              730: {
-                slidesPerView: 2,
-              },
-              919: {
-                slidesPerView: 2.5,
-              },
-              1084: {
-                slidesPerView: 3,
-              },
-              1200: {
-                slidesPerView: 3.5,
-              },
-              1600: {
-                slidesPerView: 5,
-              },
-            }}
-            style={{ position: "unset" }}
-          >
-            {productos.map((product) => (
-              <SwiperSlide key={product.id}>
-                <CardItem
-                  title={product.nombre}
-                  price={product.precio}
-                  img={product.img}
-                  id={product.id}
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+        
       </div>
     </Layout>
   );
