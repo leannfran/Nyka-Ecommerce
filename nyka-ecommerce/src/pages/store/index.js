@@ -2,7 +2,7 @@ import { getProductsByCategory } from "@/firebase/firebase";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import ItemList from "../../components/items/ItemList";
-import Layout from "@/components/layout/Layout";
+import Layout from "../../components/layout/Layout";
 
 const Tienda = () => {
   const fondo1 =
