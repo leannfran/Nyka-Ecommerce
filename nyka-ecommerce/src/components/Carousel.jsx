@@ -3,9 +3,9 @@ import Image from 'next/image';
 import React from 'react';
 import lampara from '../../public/Image.png'
 
-const Carrousel = () => {
+const Carousel = () => {
   return (
-    <div className="carousel w-full ">
+    <div className="carousel">
   <div id="slide1" className="carousel-item relative w-full">
     <Image src={lampara} className="w-full md:h-[600px] lg:h-[400px] 2xl:h-[620px]  object-cover" alt=""/>
     <Image src={lampara} className="w-full md:h-[600px] lg:h-[400px] 2xl:h-[620px]  object-cover hidden lg:block" alt=""/>
@@ -42,4 +42,4 @@ const Carrousel = () => {
   );
 };
 
-export default Carrousel;
+export default Carousel;
