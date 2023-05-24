@@ -49,7 +49,7 @@ const NavBar = () => {
       </div>
       <div className="navbar-center">
         {search ? (
-          <input type="text" placeholder="Buscar" className="rounded-lg bg-white text-black px-2" />
+          <input type="text" placeholder="Buscar" className="rounded-lg bg-white text-black px-2 border border-black" />
 
           ) : (
             
@@ -58,13 +58,13 @@ const NavBar = () => {
       </div>
       <div className="navbar-end flex gap-8 ">
         <button className="btn btn-ghost btn-circle w-6 hidden md:block ">
-          <div className="indicator  ">
-            <LogoProfileSvg color="white" />
+          <div className="indicator">
+            <LogoProfileSvg color="currentColor" />
           </div>
         </button>
 
         <button className="btn btn-ghost btn-circle w-6 ">
-          <div className="indicator text-white " onClick={() => setSearch(!search)}>
+          <div className="indicator text-gray" onClick={() => setSearch(!search)}>
             <IconLensSvg />
           </div>
         </button>
