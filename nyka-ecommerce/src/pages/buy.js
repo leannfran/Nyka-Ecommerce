@@ -1,7 +1,7 @@
 import Wizard from "../components/atoms/Wizard";
-import Btn from "@/components/buttons/Button";
-import CardPaymentMethod from "@/components/cards/CardPaymentMethod";
-import Layout from "@/components/layout/Layout";
+import Btn from "../components/buttons/Button";
+import CardPaymentMethod from "../components/cards/CardPaymentMethod";
+import Layout from "../components/layout/Layout";
 import React from "react";
 import { useForm } from "react-hook-form";
 

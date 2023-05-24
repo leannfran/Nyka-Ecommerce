@@ -28,7 +28,7 @@ const CardsContainer = () => {
         />
       </div>
 
-      <Button content="VER TODOS LOS PRODUCTOS" link direction="/store" color />
+      <Button content="VER TODOS LOS PRODUCTOS" link direction="/store" color/>
     </div>
   );
 };

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import ItemList from "@/components/items/ItemList";
 import Layout from "../../components/layout/Layout";
 import { Swiper, SwiperSlide } from "swiper/react";
-import CardItem from "../../components/cards/CardItem";
+import CardItem from "../../components/Cards/CardItem";
 import Btn from "../../components/buttons/Button";
 import "swiper/css";
 import "swiper/css/navigation";
