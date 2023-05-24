@@ -5,13 +5,13 @@ const Button = ({ link, content, direction, color, onClick, disable }) => {
  
  
   return (
-    <div className="m-auto">
+    <div className=" cursor-poiter">
       {!link ? (
         <button
           disabled={disable}
           className={`${
             disable ? "bg-[#818181] text-[#acacac]" : "bg-[#8D4925] text-white" 
-          } font-semibold p-3 rounded-md text-center duration-500`}
+          } py-3 px-32 font-semibold rounded-lg hover:shadow-xl transition-all`}
           onClick={onClick}
         >
           {content}
@@ -21,7 +21,7 @@ const Button = ({ link, content, direction, color, onClick, disable }) => {
           href={direction}
           className={`${
             color ? "bg-[#8D4925] text-white" : "bg-white border-2"
-          } font-semibold p-3 rounded-md text-center`}
+          } font-semibold p-3 px-12 rounded-md text-center`}
         >
           {content}
         </Link>

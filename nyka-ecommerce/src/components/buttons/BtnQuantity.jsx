@@ -25,22 +25,22 @@ const BtnQuantity = ({ decrement, increment, value, register }) => {
     </div>;
   }
   return (
-    <div className="flex items-center border border-black rounded-lg py-2 w-fit">
+    <div className="flex items-center border border-black rounded-lg py-3 cursor-pointer w-fit">
       <span
-        className=" text-black text-center text-lg rounded-l w-10 "
+        className=" text-black  pl-3 rounded-l "
         onClick={decrement}
       >
         -
       </span>
       <input
-        className="w-10 text-center bg-white border-none"
+        className="text-center cursor-pointer bg-white "
         value={value}
         type="number"
         readOnly
         {...register("quantity", { required: true })}
       />
       <span
-        className=" text-black text-center text-lg w-10 "
+        className=" text-black   pr-3 rounded-r "
         onClick={increment}
       >
         +
