@@ -4,7 +4,7 @@ import { LogoInstagramSvg } from "./Svgs";
 
 const InstagramSection = () => {
   return (
-    <div className="my-52">
+    <div className="my-28">
       <div className="flex items-center gap-3 justify-center my-12">
         <LogoInstagramSvg/>
         <h2 className="text-[#8D4925] text-2xl font-bold">@somosnyka</h2>
