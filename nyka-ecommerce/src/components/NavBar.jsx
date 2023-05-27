@@ -4,9 +4,10 @@ import  {CartContext}  from "../components/context/CartContext";
 import Link from "next/link";
 
 const NavBar = () => {
+  const [search, setSearch] = React.useState(false);
 
   const { openCart } = React.useContext(CartContext);
-  
+
   return (
     <nav className="navbar md:px-5 z-[2] absolute">
       <div className="navbar-start">
@@ -19,35 +20,41 @@ const NavBar = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 z-10"
           >
             <li>
-              <a>Perfil</a>
+              <Link href="#">Perfil</Link>
             </li>
             <li>
-              <a href="./store">Tienda</a>
+              <Link href="./store">Tienda</Link>
             </li>
             <li>
-              <a>¿Cómo comprar?</a>
+              <Link href="./questions">¿Cómo comprar?</Link>
             </li>
             <li>
-              <a>Contacto</a>
+              <Link href="#">Contacto</Link>
             </li>
           </ul>
         </div>
         <div className={`hidden lg:block font-semibold`}>
           <ul className="flex gap-5">
             <li>
-              <Link href={"/store"}>Tienda</Link>
+              <Link href="/store">Tienda</Link>
             </li>
             <li>
-              <a>¿Cómo comprar?</a>
+              <Link href="./questions">¿Cómo comprar?</Link>
             </li>
             <li>
-              <a>Contacto</a>
+              <Link href="#">Contacto</Link>
             </li>
           </ul>
         </div>
       </div>
       <div className="navbar-center">
-        <Link href="/" className="btn btn-ghost normal-case text-xl">SomosNyka</Link>
+        {search ? (
+          <input type="text" placeholder="Buscar" className="rounded-lg bg-white text-black px-2" />
+
+          ) : (
+            
+            <Link href="/" className="btn btn-ghost normal-case text-xl">SomosNyka</Link>
+        )}
       </div>
       <div className="navbar-end flex gap-8 ">
         <button className="btn btn-ghost btn-circle w-6 hidden md:block ">
@@ -57,7 +64,7 @@ const NavBar = () => {
         </button>
 
         <button className="btn btn-ghost btn-circle w-6 ">
-          <div className="indicator text-white ">
+          <div className="indicator text-white " onClick={() => setSearch(!search)}>
             <IconLensSvg />
           </div>
         </button>

@@ -13,6 +13,7 @@ export default function Home() {
       <CardsContainer />
       <PayInfo />
       <InstagramSection />
+      
     </Layout>
   );
 }
