@@ -14,6 +14,8 @@ import "swiper/css/scrollbar";
 import { getProductos } from "@/firebase/firebase";
 import { useForm } from "react-hook-form";
 import BtnQuantity from "../../components/buttons/BtnQuantity";
+import { MyLoaderItemDetail } from "../../components/itemLoader";
+import ContentLoader from "react-content-loader";
 
 const Product1 = () => {
   const router = useRouter();
@@ -227,8 +229,10 @@ const Product1 = () => {
             </div>
           </div>
         ) : (
-          <p>Cargando datos del producto...</p>
-        )}
+          <div className="flex w-full m-10 justify-center items-start min-h-[90vh]">
+              <p className="font-light text-lg text-[#622708]">Cargando...</p>
+          </div>
+          )}
       </div>
       <div className="flex-col items-center hidden">
         <h4 className="text-xl font-bold text-black  mt-20 border-b border-1 border-black pb-5 mb-5">
