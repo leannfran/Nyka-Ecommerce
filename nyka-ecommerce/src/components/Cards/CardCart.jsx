@@ -3,7 +3,7 @@ import Image from "next/image";
 import item from "../../../public/Image.png";
 import { IconTrashSvg } from "../Svgs";
 
-const CardCart = () => {
+const CardCart = ({quantity,title,price,category}) => {
   return (
     <div className="flex justify-between items-center font-medium gap-2">
      
@@ -16,17 +16,12 @@ const CardCart = () => {
       <div className="">
 
         <h3>
-          1x Lámparas Personalizada Pareja
+          {quantity}x Lampara {title} {category}
         </h3>
-        <p>$ 1.500</p>
+        <p>$ {price}</p>
         </div>
       </div>
-      <div className="border px-4 rounded-md border-black flex gap-2 text-xl">
-        <button className="">-</button>
-        <span>0</span>
-        <button className="">+</button>
-      </div>
-      <div className="w-10 h-10">
+      <div className="w-10 h-10 cursor-pointer">
 
       <IconTrashSvg />
       </div>

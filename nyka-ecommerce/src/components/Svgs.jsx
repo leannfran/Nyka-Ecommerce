@@ -372,7 +372,7 @@ export function IconCloseSvg() {
       viewBox="0 0 56 56"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="cursor-pointer"
+      className="cursor-pointerz"
     >
       <g filter="url(#filter0_d_168_2150)">
         <circle cx="23" cy="23" r="18" fill="white" />

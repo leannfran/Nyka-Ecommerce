@@ -5,7 +5,7 @@ const Button = ({ link, content, direction, color, onClick, disable }) => {
  
  
   return (
-    <div className=" cursor-poiter">
+    <div className=" cursor-poiter m-auto">
       {!link ? (
         <button
           disabled={disable}
