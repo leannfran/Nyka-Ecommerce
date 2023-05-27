@@ -5,13 +5,13 @@ const Button = ({ link, content, direction, color, onClick, disable }) => {
  
  
   return (
-    <div className=" cursor-poiter">
+    <div className=" cursor-poiter m-auto">
       {!link ? (
         <button
           disabled={disable}
           className={`${
             disable ? "bg-[#818181] text-[#acacac]" : "bg-[#8D4925] text-white" 
-          } py-3 px-32 font-semibold rounded-lg hover:shadow-xl transition-all`}
+          } py-3 px-10 md:px-32 w-full font-semibold rounded-lg hover:shadow-xl transition-all`}
           onClick={onClick}
         >
           {content}
