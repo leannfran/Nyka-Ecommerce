@@ -1,8 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
-import { getProducto } from "@/firebase/firebase";
+import { getProducto } from "../../firebase/firebase";
 import { useEffect, useState } from "react";
-import ItemList from "@/components/items/ItemList";
 import Layout from "../../components/layout/Layout";
 import { Swiper, SwiperSlide } from "swiper/react";
 import CardItem from "../../components/Cards/CardItem";
@@ -11,11 +10,9 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import { getProductos } from "@/firebase/firebase";
+import { getProductos } from "../../firebase/firebase";
 import { useForm } from "react-hook-form";
 import BtnQuantity from "../../components/buttons/BtnQuantity";
-import { MyLoaderItemDetail } from "../../components/itemLoader";
-import ContentLoader from "react-content-loader";
 
 const Product1 = () => {
   const router = useRouter();

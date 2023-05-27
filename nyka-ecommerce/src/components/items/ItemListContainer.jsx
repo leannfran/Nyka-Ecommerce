@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getProductos } from "@/firebase/firebase";
+import { getProductos } from "../../firebase/firebase";
 import ItemList from "./ItemList";
 const ItemListContainer = (props) => {
   const wrap = props.wrap;
