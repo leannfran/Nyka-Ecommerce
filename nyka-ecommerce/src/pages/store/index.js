@@ -1,4 +1,4 @@
-import { getProductsByCategory } from "@/firebase/firebase";
+import { getProductsByCategory } from "../../firebase/firebase";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import ItemList from "../../components/items/ItemList";

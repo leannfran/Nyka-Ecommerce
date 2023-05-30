@@ -2,6 +2,8 @@
 import { initializeApp } from "firebase/app";
 //import { getAnalytics } from "firebase/analytics";
 import { getFirestore, collection, addDoc, getDoc, getDocs, doc, updateDoc ,deleteDoc , query,where} from 'firebase/firestore';
+// Add SDKs for Firebase products that you want to use
+import {getAuth} from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAPrKBrrWWzm2MORczh-y_T_mGaqTzeIQY",
@@ -13,10 +15,15 @@ const firebaseConfig = {
   measurementId: "G-3T6RCF0DJJ"
 };
 
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 //const analytics = getAnalytics(app);
 const db = getFirestore();//consultar base de datos
+
+const auth = getAuth(app);
+
+export {auth};
 
 //con esta funcion obtenemos los productos de la base de datos
 export const getProductos = async () => {

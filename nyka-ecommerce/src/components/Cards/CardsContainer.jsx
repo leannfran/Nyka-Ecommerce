@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import { getProductos } from "@/firebase/firebase";
+import { getProductos } from "../../firebase/firebase";
 import Link from "next/link";
 import Button from "../buttons/Button";
 import CardSwiper from "./CardSwiper";
