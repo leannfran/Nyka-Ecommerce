@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import ItemList from "../../components/items/ItemList";
 import Layout from "../../components/layout/Layout";
+import {  IconDownOpenBig, IconUpOpenBig } from "../../components/Svgs";
 
 const Tienda = () => {
   const fondo1 =
@@ -12,6 +13,8 @@ const Tienda = () => {
 
   const [category, setCategory] = useState("");
   const [productos, setProductos] = useState([]);
+  const [showList, setShowList] = useState(true);
+
 
   useEffect(() => {
     getProductsByCategory(category).then((productsFiltered) => {
@@ -21,6 +24,10 @@ const Tienda = () => {
       setProductos(productsList);
     });
   }, [category]);
+
+  const toggleList = () => {
+    setShowList(!showList);
+  };
 
   const changeCategoryAll = () => {
     setCategory("");
@@ -61,53 +68,57 @@ const Tienda = () => {
             height={300}
           />
         </div>
-        <div className="flex min-h-screen">
-          <section className="md:min-w-[20%] mt-12 ml-4 pr-20">
-            <p className="pl-1 pb-1 font-medium text-black text-base  border-b-[0.5px] border-[#2D2E37]">
-              {" "}
-              categorias
-            </p>
+        <div className="flex flex-col md:flex-row min-h-screen">
+          <section className="md:min-w-[20%] mt-4 md:mt-12 ml-10 md:ml-4 pr-20">
 
-            <ul className="flex flex-col items-start pl-1 gap-3 mt-1 text-lg text-[#2D2E37]">
-              <button
-                className=" hover:text-[#8D4925]"
-                onClick={changeCategoryAll}
-              >
-                Ver todo
-              </button>
-              <button
-                className=" hover:text-[#8D4925]"
-                onClick={changeCategoryPersonas}
-              >
-                Personas
-              </button>
-              <button
-                className=" hover:text-[#8D4925]"
-                onClick={changeCategoryInfantiles}
-              >
-                Infantiles
-              </button>
-              <button
-                className=" hover:text-[#8D4925]"
-                onClick={changeCategoryEmpresas}
-              >
-                Empresas
-              </button>
-              <button
-                className=" hover:text-[#8D4925]"
-                onClick={changeCategoryEventos}
-              >
-                Eventos
-              </button>
-              <button
-                className=" hover:text-[#8D4925]"
-                onClick={changeCategoryMore}
-              >
-                Mas productos
-              </button>
-            </ul>
+          <button onClick={toggleList} className="gap-2 hover:text-[#8D4925]   text-black flex items-center text-base font-medium border-b-[0.5px] border-[#2D2E37]">
+            <p className="pl-1 pb-1 font-light text-lg  ">
+          categorias
+        </p>
+           {!showList ? <IconDownOpenBig/>: <IconUpOpenBig/>} 
+          </button>
+        {showList && (
+          <ul className="flex flex-col items-start pl-1 gap-3 mt-1 text-lg text-[#2D2E37]">
+            <button className="hover:text-[#8D4925]" onClick={changeCategoryAll}>
+              Ver todo
+            </button>
+            <button
+              className="hover:text-[#8D4925]"
+              onClick={changeCategoryPersonas}
+            >
+              Personas
+            </button>
+            <button
+              className="hover:text-[#8D4925]"
+              onClick={changeCategoryInfantiles}
+            >
+              Infantiles
+            </button>
+            <button
+              className="hover:text-[#8D4925]"
+              onClick={changeCategoryEmpresas}
+            >
+              Empresas
+            </button>
+            <button
+              className="hover:text-[#8D4925]"
+              onClick={changeCategoryEventos}
+            >
+              Eventos
+            </button>
+            <button className="hover:text-[#8D4925]" onClick={changeCategoryMore}>
+              Mas productos
+            </button>
+          </ul>
+        )}
+
+
+
+
+
+
           </section>
-          <section className="flex flex-row flex-wrap gap-3 m-3">
+          <section className="flex flex-row flex-wrap justify-center gap-3 m-3">
             {productos}
             {/* productosfiltrados */}
           </section>
