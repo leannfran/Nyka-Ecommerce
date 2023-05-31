@@ -6,7 +6,7 @@ import {
   AccordionHeader,
   AccordionBody,
 } from "@material-tailwind/react";
-import { IconInstaSvg, IconWspSvg } from "../components/Svgs";
+import {  LogoInstaSvg, LogoWspSvg } from "../components/Svgs";
 import Link from "next/link";
 
 function Icon({ id, open }) {
@@ -110,11 +110,11 @@ const Questions = () => {
         </Fragment>
         <div className="flex gap-5 mt-12 text-xs font-bold">
           <Link href="#" className="flex flex-col items-center">
-          <IconInstaSvg/>
+          <LogoInstaSvg/>
           <span>@somosnyka</span>
           </Link>
           <Link href="#" className="flex flex-col items-center">
-          <IconWspSvg/>
+          <LogoWspSvg/>
           <span>Whatsapp</span>
           </Link>
         </div>
