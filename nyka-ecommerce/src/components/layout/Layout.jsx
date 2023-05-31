@@ -1,5 +1,5 @@
 import React from "react";
-import NavBar from "../NavBar";
+import NavBar from "../navbar/NavBar";
 import Footer from "../Footer";
 import Cart from "../Cart";
 import CartProvider from "../context/CartContext";

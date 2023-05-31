@@ -6,8 +6,8 @@ import {
   AccordionHeader,
   AccordionBody,
 } from "@material-tailwind/react";
-import {  LogoInstaSvg, LogoWspSvg } from "../components/Svgs";
 import Link from "next/link";
+import { LogoInstaSvg, LogoWspSvg } from "../components/Svgs";
 
 function Icon({ id, open }) {
   return (
