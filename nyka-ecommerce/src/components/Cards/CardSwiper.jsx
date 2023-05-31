@@ -8,7 +8,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import CardItem from "../Cards/CardItem";
+import CardItem from "../cards/CardItem";
 
 export default function CardSwiper({ products ,title}) {
   return (

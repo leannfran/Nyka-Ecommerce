@@ -1,6 +1,6 @@
 import { Alert } from "@material-tailwind/react";
 
-export default function Notification({ show, message }) {
+ function Notification({ show, message }) {
   return (
     <div className=" absolute w-10/12 bottom-0">
       <Alert
@@ -16,3 +16,4 @@ export default function Notification({ show, message }) {
     </div>
   );
 }
+export default Notification

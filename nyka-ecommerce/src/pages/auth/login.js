@@ -1,8 +1,8 @@
 import React from "react";
-import LoginForm from "../../components/auth/loginForm";
+import LoginForm from "../../components/auth/LoginForm";
 import Link from "next/link";
 
-const login = () => {
+const Login = () => {
   return (
     <div className="min-h-screen flex justify-center items-center">
      <Link href='/' className='absolute top-12 left-12 underline text-[#8D4925]'>
@@ -14,4 +14,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default Login;
