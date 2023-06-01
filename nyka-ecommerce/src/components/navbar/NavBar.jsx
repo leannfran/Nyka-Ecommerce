@@ -22,7 +22,7 @@ const NavBar = () => {
   const signOut = async () => {
     try {
       await auth.signOut();
-      push("/");
+      push("/auth/login");
     } catch (error) {
       console.log(error.message);
     }
@@ -58,10 +58,10 @@ const NavBar = () => {
             )}
             
             <li>
-              <Link href="./store">Tienda</Link>
+              <Link href="/store">Tienda</Link>
             </li>
             <li>
-              <Link href="./questions">¿Cómo comprar?</Link>
+              <Link href="/questions">¿Cómo comprar?</Link>
             </li>
             <li>
               <Link href="#">Contacto</Link>

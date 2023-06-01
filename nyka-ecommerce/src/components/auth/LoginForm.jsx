@@ -9,10 +9,11 @@ import {
 import { signInWithEmailAndPassword } from "firebase/auth";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
-import Notification from "../notifications/Notification";
+import Notification from "../notifications/notification";
 import { useRouter } from "next/router";
 import { auth } from "../../firebase/firebase";
-import AuthContext from "../../context/authContext"
+import AuthContext from "../../context/authContext";
+
 
 export default function LoginForm() {
   const { push } = useRouter();
@@ -78,8 +79,7 @@ export default function LoginForm() {
 
   return (
     <Card color="transparent" shadow={true} className="p-5 shadow-xl border">
-   
-    <Notification show={showNotification} message={message} />    
+      
 
 
         <Typography variant="h4" color="blue-gray">
@@ -105,6 +105,7 @@ export default function LoginForm() {
             />
           </div>
 
+          <Notification show={showNotification} message={message} />    
           <Button
             className="mt-6 bg-[#8D4925]"
             fullWidth

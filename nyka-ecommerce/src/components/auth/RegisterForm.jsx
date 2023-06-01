@@ -11,7 +11,7 @@ import { useForm } from "react-hook-form";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase/firebase";
 import { useRouter } from "next/router";
-import Notification from "../notifications/Notification";
+import Notification from "../notifications/notification";
 
 export default function RegisterForm() {
   const { push } = useRouter();
